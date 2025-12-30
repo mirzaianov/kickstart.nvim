@@ -1,8 +1,3 @@
-vim.cmd 'set expandtab'
-vim.cmd 'set tabstop=2'
-vim.cmd 'set softtabstop=2'
-vim.cmd 'set shiftwidth=2'
-
 --[[
 
 =====================================================================
@@ -238,6 +233,9 @@ end
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
+
+-- [[ Configure Vim Options ]]
+require 'vim-options'
 
 -- [[ Configure and install plugins ]]
 --
