@@ -1,4 +1,5 @@
 return {
+  'windwp/nvim-autopairs',
   'saghen/blink.cmp',
   'stevearc/conform.nvim',
   'lewis6991/gitsigns.nvim',
