@@ -1,0 +1,16 @@
+return {
+  'saghen/blink.cmp',
+  'stevearc/conform.nvim',
+  'lewis6991/gitsigns.nvim',
+  'NMAC427/guess-indent.nvim',
+  'folke/lazydev.nvim',
+  'kdheepak/lazygit.nvim',
+  'echasnovski/mini.nvim',
+  'nvim-neo-tree/neo-tree.nvim',
+  'neovim/nvim-lspconfig',
+  'nvim-treesitter/nvim-treesitter',
+  'nvim-telescope/telescope.nvim',
+  'folke/todo-comments.nvim',
+  'folke/tokyonight.nvim',
+  'folke/which-key.nvim',
+}
