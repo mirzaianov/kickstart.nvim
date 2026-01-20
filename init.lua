@@ -205,6 +205,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Escape with jj
+vim.keymap.set('i', 'jj', '<Esc>', { noremap = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -300,15 +303,30 @@ require('lazy').setup {
   -- { import = 'custom.plugins' },
 
   -- Always import plugins:
-  { import = "always.plugins",    cond = true },
+  { import = 'always.plugins', cond = true },
   -- Import the Custom plugins if not running in VSCode
-  { import = "custom.plugins",    cond = (function() return not is_vscode end) },
+  {
+    import = 'custom.plugins',
+    cond = function()
+      return not is_vscode
+    end,
+  },
   -- Do not import plugins
-  { import = "disabled.plugins",  cond = false },
+  { import = 'disabled.plugins', cond = false },
   -- Import the Kickstart plugins if not running in VSCode
-  { import = "kickstart.plugins", cond = (function() return not is_vscode end) },
+  {
+    import = 'kickstart.plugins',
+    cond = function()
+      return not is_vscode
+    end,
+  },
   -- Import the VSCode plugins if running in VSCode
-  { import = "vs-code.plugins",   cond = (function() return is_vscode end) },
+  {
+    import = 'vs-code.plugins',
+    cond = function()
+      return is_vscode
+    end,
+  },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
