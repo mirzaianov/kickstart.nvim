@@ -249,6 +249,7 @@ require 'vim-options'
 
 -- NOTE: Here is where you install your plugins.
 
+-- Set a variable to check if we are running in VSCode
 local is_vscode = vim.g.vscode
 
 require('lazy').setup {
@@ -299,7 +300,18 @@ require('lazy').setup {
   -- { import = 'custom.plugins' },
 
   -- { import = 'kickstart.plugins' },
-  spec = is_vscode and { { import = 'vs-code.plugins' } } or { { import = 'kickstart.plugins' }, { import = 'custom.plugins' } },
+
+  -- Check if we are running in VSCode
+  spec = is_vscode
+      -- If we are running in VSCode, import the VSCode plugins
+      and { { import = 'vs-code.plugins' } }
+      -- If we are not running in VSCode
+      or {
+        -- Import the Kickstart plugins
+        { import = 'kickstart.plugins' },
+        -- Import the Custom plugins
+        { import = 'custom.plugins' },
+      },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
