@@ -246,8 +246,11 @@ require 'vim-options'
 --
 --  To update plugins you can run
 --    :Lazy update
---
+
 -- NOTE: Here is where you install your plugins.
+
+local is_vscode = vim.g.vscode
+
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 
@@ -295,8 +298,8 @@ require('lazy').setup {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
 
-  { import = 'kickstart.plugins' },
-  { import = 'vs-code.plugins' },
+  -- { import = 'kickstart.plugins' },
+  spec = is_vscode and { { import = 'vs-code.plugins' } } or { { import = 'kickstart.plugins' } },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

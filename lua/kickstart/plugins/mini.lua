@@ -1,9 +1,5 @@
 -- Collection of various small independent plugins/modules
 
-if vim.g.vscode then
-  return {}
-end
-
 return {
   'echasnovski/mini.nvim',
   config = function()
