@@ -10,7 +10,7 @@ return {
           local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
 
           return MiniStatusline.combine_groups({
-            { hl = mode_hl, strings = { mode } },
+            { hl = mode_hl, strings = { '-- ' .. mode .. ' --' } },
           })
         end,
         -- Content for inactive window(s)
