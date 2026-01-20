@@ -299,7 +299,8 @@ require('lazy').setup {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
 
-  -- { import = 'kickstart.plugins' },
+  -- <disabled> folder for disabled plugins.
+  -- Do not import them
 
   -- Check if we are running in VSCode
   spec = is_vscode
