@@ -296,7 +296,7 @@ require('lazy').setup {
   -- { import = 'custom.plugins' },
 
   { import = 'kickstart.plugins' },
-  { import = 'vscode.plugins' },
+  { import = 'vs-code.plugins' },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
