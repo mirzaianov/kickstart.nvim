@@ -299,20 +299,16 @@ require('lazy').setup {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
 
-  -- <disabled> folder for disabled plugins.
-  -- Do not import them
-
-  -- Check if we are running in VSCode
-  spec = is_vscode
-      -- If we are running in VSCode, import the VSCode plugins
-      and { { import = 'vs-code.plugins' } }
-      -- If we are not running in VSCode
-      or {
-        -- Import the Kickstart plugins
-        { import = 'kickstart.plugins' },
-        -- Import the Custom plugins
-        { import = 'custom.plugins' },
-      },
+  -- Always import plugins:
+  { import = "always.plugins",    cond = true },
+  -- Import the Custom plugins if not running in VSCode
+  { import = "custom.plugins",    cond = (function() return not is_vscode end) },
+  -- Do not import plugins
+  { import = "disabled.plugins",  cond = false },
+  -- Import the Kickstart plugins if not running in VSCode
+  { import = "kickstart.plugins", cond = (function() return not is_vscode end) },
+  -- Import the VSCode plugins if running in VSCode
+  { import = "vs-code.plugins",   cond = (function() return is_vscode end) },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
