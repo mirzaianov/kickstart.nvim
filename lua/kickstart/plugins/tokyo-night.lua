@@ -8,6 +8,17 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
+      on_highlights = function(hl)
+        hl['@keyword.import'] = { fg = '#C74DED', italic = true }
+        hl['@keyword.function'] = { fg = '#C74DED' }
+        hl['@keyword.return'] = { fg = '#FF00AA', italic = true }
+        hl['@lsp.type.function'] = { fg = '#00E8C6' }
+        hl['@lsp.type.parameter'] = { fg = '#00E8C6' }
+        hl['@lsp.typemod.function.declaration'] = { fg = '#FFE66D' }
+        hl['@lsp.typemod.parameter.declaration'] = { fg = '#00E8C6' }
+        hl['@operator'] = { fg = '#EE5D43' }
+      end,
+
       styles = {
         comments = { italic = false }, -- Disable italics in comments
       },
