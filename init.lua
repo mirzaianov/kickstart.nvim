@@ -167,6 +167,9 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Change the cursor behaviour
+vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,' .. 'a:blinkwait700-blinkoff400-blinkon250'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
