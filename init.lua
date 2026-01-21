@@ -247,13 +247,6 @@ require('lazy').setup {
       return not is_vscode
     end,
   },
-  -- Import the VSCode plugins if running in VSCode
-  {
-    import = 'vs-code.plugins',
-    cond = function()
-      return is_vscode
-    end,
-  },
 
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
