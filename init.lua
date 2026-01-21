@@ -225,8 +225,9 @@ require('lazy').setup {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
 
-  -- Always import plugins:
+  -- Always import plugins
   { import = 'always.plugins', cond = true },
+
   -- Import the Custom plugins if not running in VSCode
   {
     import = 'custom.plugins',
@@ -234,8 +235,11 @@ require('lazy').setup {
       return not is_vscode
     end,
   },
-  -- Do not import plugins
+
+  -- Disable importing files from this directory
+  -- Use it as a temporary place for unesessary plugins
   { import = 'disabled.plugins', cond = false },
+
   -- Import the Kickstart plugins if not running in VSCode
   {
     import = 'kickstart.plugins',
