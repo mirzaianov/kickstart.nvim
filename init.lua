@@ -110,6 +110,14 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+-- Set a variable to check if we are running in VSCode
+local is_vscode = vim.g.vscode
+
+if is_vscode then
+  vim.o.showmode = true
+  vim.o.showcmd = false -- hide partial command display
+end
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -255,9 +263,6 @@ require 'vim-options'
 --    :Lazy update
 
 -- NOTE: Here is where you install your plugins.
-
--- Set a variable to check if we are running in VSCode
-local is_vscode = vim.g.vscode
 
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
