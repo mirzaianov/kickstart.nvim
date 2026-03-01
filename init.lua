@@ -134,6 +134,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Escape with jj
 vim.keymap.set('i', 'jj', '<Esc>', { noremap = true })
 
+-- Save current buffer with <leader>w
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save the file (the same as :w)' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
