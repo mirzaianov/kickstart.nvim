@@ -30,6 +30,7 @@ local is_vscode = vim.g.vscode
 if is_vscode then
   vim.o.showmode = true
   vim.o.showcmd = false -- hide partial command display
+  vim.opt.cmdheight = 10 -- hide terminal in VS Code on errors
 end
 
 -- Sync clipboard between OS and Neovim.
