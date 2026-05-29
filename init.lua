@@ -138,6 +138,42 @@ vim.keymap.set('i', 'jj', '<Esc>', { noremap = true })
 -- Save current buffer with <leader>w
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save the file (the same as :w)' })
 
+-- Function that wraps selected visual text with given characters.
+-- Example: wrap_visual("'", "'") turns hello into 'hello'
+local function wrap_visual(open, close)
+  -- Yank the selected text into register z.
+  -- This avoids overwriting your normal yank/delete register.
+  vim.cmd('normal! "zy')
+
+  -- Get the selected text from register z.
+  local text = vim.fn.getreg("z")
+
+  -- Replace register z content with wrapped text.
+  vim.fn.setreg("z", open .. text .. close)
+
+  -- Reselect the previous visual selection and replace it
+  -- with the wrapped text from register z.
+  vim.cmd('normal! gv"zp')
+end
+
+-- In visual mode, pressing ' wraps the selected text in single quotes.
+-- hello -> 'hello'
+vim.keymap.set("v", "'", function()
+  wrap_visual("'", "'")
+end, { noremap = true, silent = true })
+
+-- In visual mode, pressing " wraps the selected text in double quotes.
+-- hello -> "hello"
+vim.keymap.set("v", '"', function()
+  wrap_visual('"', '"')
+end, { noremap = true, silent = true })
+
+-- In visual mode, pressing ` wraps the selected text in backticks.
+-- hello -> `hello`
+vim.keymap.set("v", "`", function()
+  wrap_visual("`", "`")
+end, { noremap = true, silent = true })
+
 -- [[ Basic Autocommands ]]
 -- See `:help lua-guide-autocommands`
 
